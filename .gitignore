@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.pyc
+.venv/
+venv/
+.env
+tmp/
+output/
+data/earthquakes.csv
+.DS_Store
+.vscode/
