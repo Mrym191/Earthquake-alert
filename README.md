@@ -94,34 +94,34 @@ python app.py
 
 3. Open the dashboard in your browser at the configured host and port.
 
-## Deploy to Vercel
+## Deploy to Netlify
 
-This repository is ready for Vercel deployment using the included `vercel.json`.
+This repository is ready for Netlify deployment using the included `netlify.toml` configuration.
 
-Live App: https://earthquakewatch.vercel.app
+Live App: http://enchanting-axolotl-86ee9d.netlify.app
 
 ### 1. Commit and push
 
 ```bash
 git add .
-git commit -m "Prepare Vercel deployment"
+git commit -m "Prepare Netlify deployment"
 git push origin main
 ```
 
-### 2. Deploy with Vercel CLI
+### 2. Deploy with Netlify CLI
 
 ```bash
-npm i -g vercel
-vercel login
-vercel --prod
+npm install -g netlify-cli
+netlify login
+netlify deploy --prod
 ```
 
 ### Notes
 
-- Vercel runs the Flask app from `app.py` via `@vercel/python`.
-- `/api/refresh-run` is disabled on Vercel serverless (returns HTTP 501). Run refresh scripts locally when needed.
+- Netlify runs the Flask app using the configured deployment settings.
+- `/api/refresh-run` may not work on static/serverless hosting environments. Run refresh scripts locally when needed.
 - Ensure `data/earthquakes.csv` exists in the repository before deployment.
-- `requirements.txt` is intentionally runtime-only for Vercel; use `requirements-pipeline.txt` for full local Spark workflows.
+- `requirements.txt` contains runtime dependencies for deployment, while `requirements-pipeline.txt` is used for full local Spark workflows.
 
 ## API Endpoints
 
